@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.0": {
+      "DSA_MOULY_Thomas_Assignment/1.0.0": {
+        "runtime": {
+          "DSA_MOULY_Thomas_Assignment.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "DSA_MOULY_Thomas_Assignment/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
