@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace DSA_MOULY_Thomas_Assignment
 {
@@ -95,9 +96,85 @@ namespace DSA_MOULY_Thomas_Assignment
         {
             for(int i=0; i<this.studentList.Count; i++)
             {
-                Console.WriteLine(this.studentList[i].ToString());
+                Console.WriteLine(studentList[i].ToString());
                 Console.WriteLine();
             }
         }
+
+        public void SortingDatabase(int direction, int field)
+        {
+            if (field == 1)
+            {
+
+                studentList = studentList.OrderBy(o => o.studentNumber).ToList();
+                if (direction == 2)//the user wants the decreasing order 
+                {
+                    studentList = studentList.OrderByDescending(o => o.studentNumber).ToList();
+                }
+            }
+
+        
+            if (field == 2)
+            {
+                //we are sorting students by their last name
+                studentList = studentList.OrderBy(o => o.firstName).ToList();
+                if (direction == 2)//the user wants the decreasing order 
+                {
+                    studentList = studentList.OrderByDescending(o => o.firstName).ToList();
+                }
+
+            }
+            if (field == 3)
+            {
+                //we are sorting students by their last name
+
+                studentList = studentList.OrderBy(o => o.lastName).ToList();
+                if (direction == 2)//the user wants the decreasing order 
+                {
+                    studentList = studentList.OrderByDescending(o => o.lastName).ToList();
+                }
+            }
+
+
+            if (field == 4)
+            {
+                //we are sorting students by their average score
+
+
+                for (int j = 0; j < this.studentList.Count; j++)
+                {
+                    Student memory = studentList[j];
+                    //sort by increasing (direction = 1 )
+                    //let's check if the previous students in the list have a lower average score
+
+                    for (int k = 0; k <= j ; k++)
+                    {
+                        if (memory.averageScore < studentList[k].averageScore)
+                        {
+                            studentList[j] = studentList[k];
+                            studentList[k] = memory;
+
+                        }
+                    }
+
+                }
+
+                //the database is now sorted by the averageScore in the increasing order
+
+                if (direction == 2)//the user wants the decreasing order 
+                {
+                    for (int i = 0; i < studentList.Count; i++)
+                    {
+                        Student memory = studentList[i];
+                        int length = studentList.Count;
+                        studentList[i] = studentList[length - 1 - i];
+                    }
+                }
+            }
+
+
+        }
+
     }
+    
 }
